@@ -25,6 +25,7 @@ mongoose
 // Create API Endpoint
 app.use("/api/user", userRoute);
 app.use("/api/auth", authRoute);
+app.use("/api/products", productRoute);
 
 // App listen
 app.listen(process.env.PORT || 5000, () => {
