@@ -5,6 +5,7 @@ const productRoute = require("./routes/product");
 const orderRoute = require("./routes/order");
 const cartRoute = require("./routes/cart");
 const authRoute = require("./routes/auth");
+const cors = require("cors");
 
 dotenv.config();
 
@@ -22,10 +23,13 @@ mongoose
   .then(() => console.log("DBConnection Successfull!"))
   .catch((err) => console.log(err));
 
+app.use(cors());
 // Create API Endpoint
 app.use("/api/user", userRoute);
 app.use("/api/auth", authRoute);
 app.use("/api/products", productRoute);
+app.use("/api/carts", cartRoute);
+app.use("/api/orders", orderRoute);
 
 // App listen
 app.listen(process.env.PORT || 5000, () => {
