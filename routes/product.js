@@ -44,8 +44,8 @@ router.delete("/:id", verifyTokenAndAdmin, async (req, res) => {
   }
 });
 
-// GET USER
-router.get("/:id", async (req, res) => {
+// GET PRODUCT
+router.get("/find/:id", async (req, res) => {
   try {
     const product = await Product.findById(req.params.id);
     return res.status(200).json(product);
@@ -54,7 +54,7 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-// GET ALL USER
+// GET ALL PRODUCT
 router.get("/", async (req, res) => {
   const qNew = req.query.new;
   const qCategory = req.query.category;
